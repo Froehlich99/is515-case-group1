@@ -8,6 +8,7 @@ Group project for IS 515 - Process Management & Analytics (HWS 2025).
 2. Install UV (if not installed): `brew install uv` or `curl -LsSf https://astral.sh/uv/install.sh | sh`
 3. Install graphviz (e.g., `brew install graphviz` on macOS)
 4. Create virtual environment and sync deps: `uv venv` then `uv sync`
+5. Add event log to data folder
 
 ## Dependencies
 
