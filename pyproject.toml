@@ -3,7 +3,7 @@ name = "is515-case-group1"
 version = "0.1.0"
 description = "Group project for is515"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 dependencies = [
   "pm4py>=2.5.0",
   "pandas>=2.0",
@@ -13,4 +13,5 @@ dependencies = [
   "matplotlib>=3.7",
   "jupyter>=1.0",
   "ipykernel",
+  "rustxes>=0.2.10",
 ]

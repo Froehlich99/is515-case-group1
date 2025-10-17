@@ -12,6 +12,9 @@ env.bak/
 venv.bak/
 UV/
 
+# Data
+data/
+
 # IDEs and editors
 .vscode/
 .idea/
