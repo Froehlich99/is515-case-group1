@@ -13,5 +13,5 @@ dependencies = [
   "matplotlib>=3.7",
 ]
 
-[tool.uv]
-dev-dependencies = ["jupyter>=1.0"]
+[tool.uv.dependency-groups]
+dev = ["jupyter>=1.0", "ipykernel"]
