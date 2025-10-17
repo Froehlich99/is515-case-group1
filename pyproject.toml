@@ -11,7 +11,6 @@ dependencies = [
   "graphviz>=0.20",
   "scipy>=1.10",
   "matplotlib>=3.7",
+  "juypyter>=1.0",
+  "ipykernel",
 ]
-
-[tool.uv.dependency-groups]
-dev = ["jupyter>=1.0", "ipykernel"]
