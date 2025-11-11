@@ -8,7 +8,13 @@ Before discovering any process, we first analyzed the event log itself. This rev
 
 **Log Size and Complexity:** The initial event log is massive, containing **319,233 cases (traces)**. This volume, combined with a high number of process variants (3,427 variants in a filtered log), indicates that a simple, one-shot process discovery would result in an unreadable "spaghetti model."
 
-**Log Scope Limitation (Missing Payment):** A key finding is that the event log is incomplete. While it covers the process from requisition or purchase order creation through invoice receipt, the actual **financial settlement step (i.e., "Make Payment") is missing**. The process most often ends with "Clear Invoice" (9258 times), which is an internal accounting step, not the final payment to the vendor.
+**Log Scope and Interpretation:** The event log does not contain an explicit activity for the payment step. Instead, the process most frequently concludes with the activity "Clear Invoice" (the end activity in 9,258 cases). We interpret the reason for this as follows:
+
+1. System Boundaries: The physical bank transfer (the "payment") is often an external event handled by a separate treasury or banking system. An ERP system may not perform this action, but it must record its completion.
+
+2. Accounting Logic: From an Accounts Payable (AP) perspective, the process works in pairs. The "Record Invoice Receipt" activity creates a financial liability (an "open item" that the company owes). The "Clear Invoice" activity is the corresponding internal accounting transaction that closes or clears that liability, signifying that the payment has been made and reconciled.
+
+"Clear Invoice" is the system's internal, final confirmation that the P2P cycle is complete. For the purpose of our analysis, we interpret "Clear Invoice" as the functional "payment step" from the system's point of view.
 
 **Logging of External Events:** The activity **"Vendor creates invoice"** is an external business event, but it's captured in the log. This is probably because the internal system records the *registration* of that event (e.g., via an EDI document or a manual entry like SAP's MIRO transaction). This is expected behavior and represents the system's "awareness" of the external action.
 
